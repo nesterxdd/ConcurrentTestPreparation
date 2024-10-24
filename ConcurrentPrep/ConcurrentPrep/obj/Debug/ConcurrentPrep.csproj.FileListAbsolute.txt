@@ -1,0 +1,7 @@
+C:\Users\P-Mac\source\repos\ConcurrentTestPreparation\ConcurrentPrep\ConcurrentPrep\bin\Debug\ConcurrentPrep.exe.config
+C:\Users\P-Mac\source\repos\ConcurrentTestPreparation\ConcurrentPrep\ConcurrentPrep\bin\Debug\ConcurrentPrep.exe
+C:\Users\P-Mac\source\repos\ConcurrentTestPreparation\ConcurrentPrep\ConcurrentPrep\bin\Debug\ConcurrentPrep.pdb
+C:\Users\P-Mac\source\repos\ConcurrentTestPreparation\ConcurrentPrep\ConcurrentPrep\obj\Debug\ConcurrentPrep.csproj.AssemblyReference.cache
+C:\Users\P-Mac\source\repos\ConcurrentTestPreparation\ConcurrentPrep\ConcurrentPrep\obj\Debug\ConcurrentPrep.csproj.CoreCompileInputs.cache
+C:\Users\P-Mac\source\repos\ConcurrentTestPreparation\ConcurrentPrep\ConcurrentPrep\obj\Debug\ConcurrentPrep.exe
+C:\Users\P-Mac\source\repos\ConcurrentTestPreparation\ConcurrentPrep\ConcurrentPrep\obj\Debug\ConcurrentPrep.pdb
