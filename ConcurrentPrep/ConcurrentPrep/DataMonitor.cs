@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace ConcurrentPrep
 {
     class DataMonitor
     {
         public string mystring { get; private set; }
-        object lockObject = new object();
+        private object lockObject = new object();
 
         public bool isDone { get; private set; } = false;
         public int countA { get; private set; } = 0;
@@ -23,16 +19,17 @@ namespace ConcurrentPrep
         }
 
         private int AddChar(char character, int counter)
-        {     
+        {
             mystring += character;
             counter++;
+
+            // Check if the total character count has reached 15
             if (counter >= 15)
             {
                 isDone = true;
-                System.Threading.Monitor.PulseAll(lockObject);
-                return counter;
+                Monitor.PulseAll(lockObject); // Notify all threads to terminate
             }
-            Monitor.PulseAll(lockObject);
+
             return counter;
         }
 
@@ -41,30 +38,39 @@ namespace ConcurrentPrep
             lock (lockObject)
             {
                 countA = AddChar('A', countA);
+
+                Monitor.PulseAll(lockObject); // Notify if finished after adding
+
             }
         }
 
         public void AddB()
         {
-            lock (lockObject)
+            lock (lockObject) // Lock before waiting
             {
-                if (countA < 3)
+                while (countA < 3 && !isDone)
                 {
                     Monitor.Wait(lockObject);
                 }
+
+
                 countB = AddChar('B', countB);
+
             }
         }
 
         public void AddC()
         {
-            lock (lockObject)
+            lock (lockObject) // Lock before waiting
             {
-                if (countA < 3)
+                while (countA < 3 && !isDone)
                 {
                     Monitor.Wait(lockObject);
                 }
+
+
                 countC = AddChar('C', countC);
+
             }
         }
     }
